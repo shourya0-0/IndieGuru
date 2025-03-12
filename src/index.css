@@ -14,14 +14,18 @@
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply font-sans antialiased text-gray-900 bg-gray-50 min-h-screen overflow-x-hidden;
+    @apply font-sans antialiased text-gray-900 bg-gray-50;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors duration-200;
+    @apply inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary hover:bg-primary/50 rounded-lg transition-colors duration-200;
   }
 
   .btn-outline {

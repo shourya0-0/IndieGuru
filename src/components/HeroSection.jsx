@@ -1,17 +1,53 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const HeroSection = () => {
+  const [displayText, setDisplayText] = useState('');
+  const [textIndex, setTextIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const texts = [
+    "Master new technologies with",
+    "Transform your career with",
+    "Learn from industry experts with",
+    "Get personalized guidance with",
+    "Achieve your goals with",
+    "Build your future with",
+    "Create your success with",
+    "Design your future with",
+    
+  ];
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    const typeText = () => {
+      const currentText = texts[textIndex];
+      if (displayText.length < currentText.length) {
+        setDisplayText(currentText.substring(0, displayText.length + 1));
+      } else {
+        setTimeout(() => {
+          setDisplayText('');
+          setTextIndex((prev) => (prev + 1) % texts.length);
+        }, 2000);
+        return;
+      }
+    };
+
+    const timer = setInterval(typeText, 100);
+    return () => clearInterval(timer);
+  }, [displayText, textIndex]);
+
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 w-full h-full"
+        className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         style={{
           backgroundImage: 'url(/background.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: '1'
         }}
       />
 
@@ -20,7 +56,7 @@ const HeroSection = () => {
         <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column - Text Content */}
-            <div className="space-y-6 lg:space-y-8 pt-20">
+            <div className={`space-y-6 lg:space-y-8 pt-20 transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
               {/* Reviews Section */}
               <div className="flex items-center space-x-4">
                 <div className="flex -space-x-4">
@@ -52,19 +88,6 @@ const HeroSection = () => {
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
-                    <svg
-                      className="w-4 h-4 text-black-100"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                      />
-                    </svg>
                   </div>
                   <span className="text-gray-600 text-sm">(10k+ Reviews)</span>
                 </div>
@@ -72,24 +95,25 @@ const HeroSection = () => {
 
               {/* Main Heading */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Grow up your skills by online mentoring with{' '}
+                {displayText}
+                <br />
                 <span className="text-primary">IndieGuru</span>
               </h1>
 
               {/* Subheading */}
               <p className="text-lg text-gray-600">
-                Grow up your skills by online mentoring with IndieGuru
+                Join thousands of learners who have transformed their careers with personalized mentoring
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4">
-                <Link to="/appointment" className="btn-primary">Take An Appointment</Link>
+                <Link to="/appointment" className="btn-primary">Take An Assessment</Link>
                 <Link to="/experts" className="btn-outline">Choose Your Expert</Link>
               </div>
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative flex items-end justify-center h-full">
+            <div className={`relative flex items-end justify-center h-full transition-all duration-1000 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
               <div className="w-full max-w-md xl:max-w-lg relative">
                 <img
                   src="/girl image.png"
@@ -98,7 +122,7 @@ const HeroSection = () => {
                   style={{ marginBottom: '-12rem' }}
                 />
                 {/* Stat Bubbles */}
-                <div className="absolute top-8 -right-4 lg:-right-16">
+                <div className={`absolute top-8 -right-4 lg:-right-16 transition-all duration-500 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
                   <div className="stats-bubble">
                     <div className="stats-bubble-icon">
                       <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +136,7 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <div className="absolute top-1/3 -left-4 lg:-left-16">
+                <div className={`absolute top-1/3 -left-4 lg:-left-16 transition-all duration-500 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
                   <div className="stats-bubble">
                     <div className="stats-bubble-icon">
                       <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +150,7 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <div className="absolute bottom-32 -right-4 lg:-right-16">
+                <div className={`absolute bottom-32 -right-4 lg:-right-16 transition-all duration-500 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
                   <div className="stats-bubble">
                     <div className="stats-bubble-icon">
                       <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

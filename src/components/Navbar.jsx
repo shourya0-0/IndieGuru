@@ -5,8 +5,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg">
-      <div className="max-w-7xl mx-auto px-6">
+    <nav className="fixed top-4 left-8 right-12 z-50 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
+      <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link to="/about" className="text-gray-600 hover:text-gray-900">About</Link>
             <Link to="/faqs" className="text-gray-600 hover:text-gray-900">FAQs</Link>
             <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact Us</Link>
-            <Link to="/login" className="px-4 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors">
+            <Link to="/login" className="px-10 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors">
               Login
             </Link>
           </div>
