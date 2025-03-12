@@ -1,13 +1,74 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # IndieGuru
+
+IndieGuru is a comprehensive platform connecting aspiring learners with expert mentors. The platform facilitates mentorship, course delivery, and community building.
+
+## Features
+
+- Expert mentorship and booking system
+- Live webinars and classes
+- Course marketplace
+- Community engagement
+- Assessment system
+- Admin dashboard for platform management
+
+## Tech Stack
+
+- Frontend: React.js with Tailwind CSS
+- Backend: Node.js with Express.js
+- Database: MongoDB
+- Authentication: JWT
+
+## Project Structure
+
+```
+indieguru/
+├── client/                 # Frontend React application
+│   ├── public/            # Static files
+│   └── src/
+│       ├── components/    # Reusable components
+│       ├── pages/        # Page components
+│       ├── layouts/      # Layout components
+│       ├── context/      # React context
+│       ├── hooks/        # Custom hooks
+│       ├── utils/        # Utility functions
+│       └── styles/       # Global styles
+├── server/                # Backend Node.js/Express application
+│   ├── config/           # Configuration files
+│   ├── controllers/      # Route controllers
+│   ├── models/          # Database models
+│   ├── routes/          # API routes
+│   ├── middleware/      # Custom middleware
+│   └── utils/           # Utility functions
+└── README.md
+```
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   cd client && npm install
+   cd ../server && npm install
+   ```
+3. Set up environment variables
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Environment Variables
+
+Create `.env` files in both client and server directories:
+
+### Client (.env)
+```
+VITE_API_URL=http://localhost:5000
+```
+
+### Server (.env)
+```
+PORT=5000
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+``` 
