@@ -31,7 +31,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-gray-900 focus:outline-none"
+              className="text-gray-700 hover:text-gray-900 focus:outline-none bg-transparent"
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation"
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -50,20 +52,45 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pt-2 pb-4 space-y-1 px-2">
-            <Link to="/store" className="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg">Store</Link>
-            <Link to="/about" className="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg">About</Link>
-            <Link to="/faqs" className="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg">FAQs</Link>
-            <Link to="/contact" className="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-lg">Contact Us</Link>
-            <Link to="/login" className="block text-center text-primary border-2 border-primary hover:bg-primary hover:text-white px-3 py-2 rounded-lg">
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden absolute top-20 left-0 right-0 mt-2 bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="flex flex-col py-2">
+            <Link to="/store" 
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-6 py-3 border-b border-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Store
+            </Link>
+            <Link to="/about" 
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-6 py-3 border-b border-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </Link>
+            <Link to="/faqs" 
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-6 py-3 border-b border-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              FAQs
+            </Link>
+            <Link to="/contact" 
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-6 py-3 border-b border-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact Us
+            </Link>
+            <Link to="/login" 
+              className="text-primary hover:bg-primary hover:text-white px-6 py-3 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
               Login
             </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
 };
