@@ -114,13 +114,13 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4">
                 <Link
                   to="/appointment"
-                  className="bg-blue-900 text-white px-6 py-3 rounded-md text-sm font-semibold text-center hover:bg-blue-800 transition-colors duration-200"
+                  className="bg-blue-900 text-white px-6 py-3 rounded-md text-sm font-semibold text-center hover:bg-white duration-200"
                 >
                   Take An Assessment
                 </Link>
                 <Link
                   to="/experts"
-                  className="border border-blue-900 text-blue-900 px-6 py-3 rounded-md text-sm font-semibold text-center hover:bg-blue-100 transition-colors duration-200"
+                  className="border border-blue-900 text-blue-900 px-6 py-3 rounded-md text-sm font-semibold text-center hover:bg-transparent transition-colors duration-200"
                 >
                   Choose Your Expert
                 </Link>

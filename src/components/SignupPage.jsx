@@ -22,12 +22,12 @@ const SignupPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#dae6fd] flex items-center justify-center p-4">
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+    <div className="min-h-screen mt-19 flex items-center justify-center p-4">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left side - Illustration */}
         <div className="hidden lg:flex justify-center items-center bg-white rounded-2xl p-8 h-full">
           <img
-            src="/signup-illustration.png"
+            src="/Sign up-cuate 1.png"
             alt="Person signing up"
             className="max-w-full h-auto"
             onError={(e) => {
@@ -66,7 +66,7 @@ const SignupPage = () => {
                           <button
                             key={code}
                             type="button"
-                            className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                            className="block w-full bg-white text-left px-4 py-2 hover:bg-gray-100"
                             onClick={() => handleCountryCodeSelect(code)}
                           >
                             {code}

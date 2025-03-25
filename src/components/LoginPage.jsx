@@ -25,12 +25,12 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#dae6fd] flex items-center justify-center p-4">
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+    <div className="min-h-screen flex items-center justify-center p-20">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left side - Illustration */}
         <div className="hidden lg:flex justify-center items-center bg-white rounded-2xl p-8 h-full">
           <img
-            src="/login-illustration.png"
+            src="/Sign up-cuate 1.png"
             alt="Person logging in"
             className="max-w-full h-auto"
             onError={(e) => {
@@ -56,7 +56,7 @@ const LoginPage = () => {
                   <div className="relative">
                     <button
                       type="button"
-                      className="flex items-center justify-between w-24 px-3 py-2 border border-gray-300 rounded-l-md bg-white text-gray-700"
+                      className="flex items-center justify-between w-20 px-4 py-2 border-gray-300 rounded-l-md bg-white text-gray-700"
                       onClick={() => setShowCountryDropdown(!showCountryDropdown)}
                     >
                       <span>{countryCode}</span>
@@ -69,7 +69,7 @@ const LoginPage = () => {
                           <button
                             key={code}
                             type="button"
-                            className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                            className="block w-full bg-white text-left px-4 py-2 hover:bg-gray-100"
                             onClick={() => handleCountryCodeSelect(code)}
                           >
                             {code}
@@ -84,7 +84,7 @@ const LoginPage = () => {
                     value={phoneNumber}
                     onChange={handlePhoneChange}
                     placeholder="Ex. 999xxxxxxx"
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-[#185899]"
+                    className="flex-1 px-3 py-2 border bg-white border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-[#185899]"
                   />
                 </div>
               </div>
@@ -105,11 +105,11 @@ const LoginPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#185899]"
+                    className="w-full bg-white px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#185899]"
                   />
                   <button
                     type="button"
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                    className="absolute right-3 top-1/2 transform bg-transparent -translate-y-1/2 text-gray-500"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -132,7 +132,7 @@ const LoginPage = () => {
 
               <button
                 type="button"
-                className="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-md hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center bg-white justify-center gap-2 border border-gray-300 py-3 rounded-md hover:bg-gray-50 transition-colors"
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
