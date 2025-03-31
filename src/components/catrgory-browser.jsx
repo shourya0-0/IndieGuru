@@ -45,56 +45,74 @@ const CategoryBrowser = () => {
   }
 
   return (
-    <div className="max-w-[100vw] py-16 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
+    <motion.div
+      className="max-w-[100vw] py-16 px-4 max-w-7xl mx-auto"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <h2 className="text-4xl md:text-5xl font-bold text-[#003265] mb-2">Browse by Category</h2>
         <div className="w-48 h-1 bg-[#003265] mx-auto"></div>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {categories.map((category) => (
-          <motion.div
-            key={category.id}
-            className="cursor-pointer"
-            whileHover={{
-              scale: 1.03,
-              transition: { duration: 0.2 },
-            }}
-            onClick={() => handleCategoryClick(category.id)}
-            onMouseEnter={() => setHoveredCategory(category.id)}
-            onMouseLeave={() => setHoveredCategory(null)}
-          >
-            <div
-              className={`rounded-xl overflow-hidden shadow-md h-full transition-all duration-300 ${
-                selectedCategory === category.id ? "ring-4 ring-[#003265]" : ""
-              }`}
-              style={{ backgroundColor: category.color }}
+      <motion.div
+        className="relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <div className="flex gap-6 snap-x snap-mandatory pb-4 px-4 overflow-x-scroll no-scrollbar"
+             style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          {categories.concat(categories).map((category, index) => (
+            <motion.div
+              key={index}
+              className="flex-none w-64 h-72 snap-center cursor-pointer"
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+              onClick={() => handleCategoryClick(category.id)}
+              onMouseEnter={() => setHoveredCategory(category.id)}
+              onMouseLeave={() => setHoveredCategory(null)}
             >
-              <div className="p-8 flex flex-col items-center">
-                <div
-                  className="w-32 h-32 rounded-full flex items-center justify-center mb-8"
-                  style={{ backgroundColor: `${category.iconColor}40` }}
-                >
-                  <img
-                    src={category.iconPath}
-                    alt={category.title}
-                    className="w-16 h-16 object-contain"
-                  />
+              <div
+                className={`w-64 h-72 rounded-xl overflow-hidden shadow-md transition-all duration-300 ${
+                  selectedCategory === category.id ? "ring-4 ring-[#003265]" : ""
+                }`}
+                style={{ backgroundColor: category.color }}
+              >
+                <div className="p-8 flex flex-col items-center">
+                  <div
+                    className="w-24 h-24 rounded-full flex items-center justify-center mb-6"
+                    style={{ backgroundColor: `${category.iconColor}40` }}
+                  >
+                    <img
+                      src={category.iconPath}
+                      alt={category.title}
+                      className="w-12 h-12 object-contain"
+                    />
+                  </div>
+                  <h3
+                    className="text-xl md:text-2xl font-semibold text-center"
+                    style={{
+                      color: category.iconColor,
+                      opacity: hoveredCategory === category.id || selectedCategory === category.id ? 1 : 0.8,
+                    }}
+                  >
+                    {category.title}
+                  </h3>
                 </div>
-                <h3
-                  className="text-2xl md:text-3xl font-semibold text-center"
-                  style={{
-                    color: category.iconColor,
-                    opacity: hoveredCategory === category.id || selectedCategory === category.id ? 1 : 0.8,
-                  }}
-                >
-                  {category.title}
-                </h3>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
       {selectedCategory && (
         <motion.div
@@ -117,7 +135,7 @@ const CategoryBrowser = () => {
           </button>
         </motion.div>
       )}
-    </div>
+    </motion.div>
   )
 }
 

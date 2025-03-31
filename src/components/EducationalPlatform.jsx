@@ -1,5 +1,7 @@
 import React from "react";
-import { Button } from "./ui/button"; // Make sure this path is correct
+import { Button } from "./ui/button"; // Ensure the path is correct
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion"; // Import framer-motion
 
 export default function EducationalPlatform() {
   const courses = [
@@ -49,113 +51,69 @@ export default function EducationalPlatform() {
     },
   ];
 
-  const categories = [
-    "All Programme",
-    "UI/UX Design",
-    "Program Design",
-    "Program Design",
-    "Program Design",
-    "Program Design",
-  ];
-
   return (
-    <div className="min-h-screen bg-[#cceeed] p-8 max-w-[100vw]">
+    <motion.div
+      className="min-h-screen bg-[#cceeed] p-8 max-w-[100vw]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="flex justify-between items-start mb-8">
-          {/* Left Image */}
+        <motion.div
+          className="flex justify-between items-start mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <div className="relative w-48 h-24">
-            <img
-              src="/Group 237661.png"
-              alt="Learn & Earn"
-              className="object-contain w-full h-full"
-            />
+            <img src="/Group 237661.png" alt="Learn & Earn" className="object-contain w-full h-full" />
           </div>
-
-          {/* Center Heading */}
           <div className="flex-1 text-center mt-4">
             <h1 className="text-[#003265] text-5xl font-bold mb-2">Upcoming sessions</h1>
             <div className="w-48 h-1 bg-[#003265] mx-auto"></div>
           </div>
-
-          {/* Right Image (smaller) */}
           <div className="w-28 h-auto mt-2">
-            <img
-              src="/hello--users-people-hello.png"
-              alt="Video call illustration"
-              className="object-contain w-full h-full"
-            />
+            <img src="/hello--users-people-hello.png" alt="Video call illustration" className="object-contain w-full h-full" />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Filter Buttons - Centered */}
-        <div className="flex justify-center mb-12 pb-2">
-          <div className="flex gap-4 flex-wrap justify-center max-w-[100vw]">
-            {categories.map((category, index) => (
-              <Button
+        {/* Course Cards - Horizontal Scroll */}
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 px-4 scrollbar-hide"
+               style={{ scrollSnapType: 'x mandatory', scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch', msOverflowStyle: 'none', scrollbarWidth: 'none' }}>
+            {courses.concat(courses).map((course, index) => (
+              <motion.div
                 key={index}
-                variant={index === 0 ? "default" : "outline"}
-                className={`rounded-md px-6 py-2 whitespace-nowrap ${
-                  index === 0
-                    ? "bg-[#003265] text-white hover:bg-[#0a2540]"
-                    : "bg-white text-[#003265] border-[#003265] hover:bg-[#f5f3ff]"
-                }`}
+                className="flex-none w-80 snap-center bg-white rounded-lg overflow-hidden shadow-md"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.2 }}
               >
-                {category}
-              </Button>
+                <div className="h-48" style={{ backgroundColor: course.color }}>
+                  <img src={course.image} alt={course.title} className="w-full h-full object-contain" />
+                </div>
+                <div className="p-4">
+                  <div className="text-sm text-gray-500 mb-2">{course.date}</div>
+                  <h3 className="text-lg font-bold text-[#003265] mb-3">{course.title}</h3>
+                  <p className="text-sm text-gray-600 mb-6">{course.instructor}</p>
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-baseline">
+                      <span className="text-xl font-bold text-[#003265]">$ {course.price}</span>
+                      <span className="ml-2 text-gray-400 line-through text-sm">$ {course.originalPrice}</span>
+                    </div>
+                    <Button className="bg-[#003265] hover:bg-[#0a2540] text-white">Enroll Now</Button>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* Course Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {courses.map((course) => (
-            <div key={course.id} className="bg-white rounded-lg overflow-hidden shadow-md">
-              {/* Course Image */}
-              <div className="h-48" style={{ backgroundColor: course.color }}>
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-
-              {/* Student Info */}
-              <div className="flex items-center p-4 border-b">
-                <div className="flex -space-x-2">
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full border-2 border-white overflow-hidden"
-                      style={{
-                        backgroundColor: ["#fbb236", "#3442d9", "#eb459f", "#29cc7a", "#ff9a15"][i % 5],
-                      }}
-                    ></div>
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-700">• {course.students} students</span>
-              </div>
-
-              {/* Course Details */}
-              <div className="p-4">
-                <div className="text-sm text-gray-500 mb-2">{course.date}</div>
-                <h3 className="text-lg font-bold text-[#003265] mb-3">{course.title}</h3>
-                <p className="text-sm text-gray-600 mb-6">{course.instructor}</p>
-
-                <div className="flex justify-between items-center">
-                  <div className="flex items-baseline">
-                    <span className="text-xl font-bold text-[#003265]">$ {course.price}</span>
-                    <span className="ml-2 text-gray-400 line-through text-sm">$ {course.originalPrice}</span>
-                  </div>
-                  <Button className="bg-[#003265] hover:bg-[#0a2540] text-white">
-                    Enroll Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

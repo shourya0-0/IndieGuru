@@ -49,31 +49,6 @@ const HowItWorks = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      
-      if (sectionRect.top <= 0 && sectionRect.bottom >= viewportHeight) {
-        const totalScrollDistance = sectionRect.height - viewportHeight;
-        const scrolledDistance = -sectionRect.top;
-        const progress = Math.min(Math.max(scrolledDistance / totalScrollDistance, 0), 1);
-        
-        const stepIndex = Math.min(Math.floor(progress * 4), 3);
-        const newStep = stepIndex + 1;
-        setCurrentStep(newStep);
-      } else if (sectionRect.top > 0) {
-        setCurrentStep(1);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleStepChange = (step) => {
     if (step >= 1 && step <= steps.length) {
       setCurrentStep(step);
@@ -227,4 +202,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks; 
+export default HowItWorks;
