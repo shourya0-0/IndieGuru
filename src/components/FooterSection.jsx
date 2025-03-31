@@ -3,7 +3,7 @@ import { LinkedinIcon, TwitterIcon } from "lucide-react";
 
 export const FooterSection = () => {
   return (
-    <footer className="bg-blue-100 text-gray-700 px-20 py-16">
+    <footer className="max-w-[100vw] bg-blue-100 text-gray-700 px-20 py-16">
       <div className="w-full overflow-hidden mx-auto px-10 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo & About */}

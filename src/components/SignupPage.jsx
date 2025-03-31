@@ -22,7 +22,7 @@ const SignupPage = () => {
   }
 
   return (
-    <div className="min-h-screen mt-19 flex items-center justify-center p-4">
+    <div className="max-w-[100vw] min-h-screen mt-19 flex items-center justify-center p-4">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left side - Illustration */}
         <div className="hidden lg:flex justify-center items-center bg-white rounded-2xl p-8 h-full">

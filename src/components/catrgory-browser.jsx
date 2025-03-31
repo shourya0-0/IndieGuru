@@ -45,7 +45,7 @@ const CategoryBrowser = () => {
   }
 
   return (
-    <div className="py-16 px-4 max-w-7xl mx-auto">
+    <div className="max-w-[100vw] py-16 px-4 max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold text-[#003265] mb-2">Browse by Category</h2>
         <div className="w-48 h-1 bg-[#003265] mx-auto"></div>

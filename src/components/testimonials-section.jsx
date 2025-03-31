@@ -178,7 +178,7 @@ const TestimonialsSection = () => {
   
 
   return (
-    <section className="my-20 px-4 overflow-hidden">
+    <section className="max-w-[100vw] my-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#003265] mb-2">Testimonials</h2>

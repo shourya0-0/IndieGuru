@@ -83,7 +83,7 @@ const HowItWorks = () => {
   const currentStepData = steps[currentStep - 1];
 
   return (
-    <div ref={sectionRef} className="relative min-h-screen py-12 overflow-hidden">
+    <div ref={sectionRef} className="max-w-[100vw] pb-40 relative min-h-screen py-12 overflow-hidden">
       <style jsx>{`
         @keyframes oscillate {
           0% { transform: translateX(0); }
@@ -96,7 +96,7 @@ const HowItWorks = () => {
       `}</style>
 
       {/* Floating Vectors with Circles */}
-      <div className={`absolute top-32 left-10 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+      <div className={`hidden md:block absolute top-32 left-10 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
         <div className="relative w-40 h-40 flex items-center justify-center">
           <div className="absolute inset-0 bg-blue-100/80 rounded-full"></div>
           <img 
@@ -106,7 +106,7 @@ const HowItWorks = () => {
           />
         </div>
       </div>
-      <div className={`absolute top-32 right-10 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+      <div className={`absolute hidden md:block top-32 right-10 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
         <div className="relative w-40 h-40 flex items-center justify-center">
           <div className="absolute inset-0 bg-blue-100/50 rounded-full"></div>
           <img 
@@ -124,7 +124,7 @@ const HowItWorks = () => {
       <img 
         src="/im-5.png" 
         alt="Smile vector" 
-        className={`absolute bottom-10 right-10 w-32 animate-oscillate transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
+        className={`hidden md:block absolute bottom-10 right-10 w-32 animate-oscillate transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
       />
 
       {/* Main Content */}
@@ -227,4 +227,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default HowItWorks; 

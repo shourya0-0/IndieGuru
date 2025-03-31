@@ -59,7 +59,7 @@ export default function EducationalPlatform() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#cceeed] p-8">
+    <div className="min-h-screen bg-[#cceeed] p-8 max-w-[100vw]">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex justify-between items-start mb-8">
@@ -89,8 +89,8 @@ export default function EducationalPlatform() {
         </div>
 
         {/* Filter Buttons - Centered */}
-        <div className="flex justify-center mb-12 overflow-x-auto pb-2">
-          <div className="flex gap-4">
+        <div className="flex justify-center mb-12 pb-2">
+          <div className="flex gap-4 flex-wrap justify-center max-w-[100vw]">
             {categories.map((category, index) => (
               <Button
                 key={index}
