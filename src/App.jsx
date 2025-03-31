@@ -8,6 +8,7 @@ import CategoryBrowser from './components/catrgory-browser';
 import TestimonialsSection from './components/testimonials-section';
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
+import BlogPage from "./components/BlogPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/blog" element={<BlogPage />} />
           </Routes>
         </main>
       </div>
