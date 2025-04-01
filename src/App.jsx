@@ -9,6 +9,7 @@ import TestimonialsSection from './components/testimonials-section';
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import BlogPage from "./components/BlogPage";
+import CommunityPage from './components/CommunityPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/community" element={<CommunityPage />} />
           </Routes>
         </main>
       </div>
