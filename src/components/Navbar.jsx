@@ -18,10 +18,10 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/store" className="text-gray-600 hover:text-gray-900">Store</Link>
-            <Link to="/about" className="text-gray-600 hover:text-gray-900">About</Link>
+            <Link to="/store" className="text-gray-600 hover:text-gray-900">Help</Link>
+            {/* <Link to="/about" className="text-gray-600 hover:text-gray-900">About</Link>
             <Link to="/faqs" className="text-gray-600 hover:text-gray-900">FAQs</Link>
-            <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact Us</Link>
+            <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact Us</Link> */}
             <Link to="/login" className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors">
               Login
             </Link>
