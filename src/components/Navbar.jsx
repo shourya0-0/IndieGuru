@@ -19,9 +19,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/store" className="text-gray-600 hover:text-gray-900">Help</Link>
-            {/* <Link to="/about" className="text-gray-600 hover:text-gray-900">About</Link>
-            <Link to="/faqs" className="text-gray-600 hover:text-gray-900">FAQs</Link>
-            <Link to="/contact" className="text-gray-600 hover:text-gray-900">Contact Us</Link> */}
+            <Link to="/community" className="text-gray-600 hover:text-gray-900">Community</Link>
             <Link to="/login" className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors">
               Login
             </Link>
@@ -81,6 +79,12 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               Contact Us
+            </Link>
+            <Link to="/community" 
+              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-6 py-3 border-b border-gray-100"
+              onClick={() => setIsOpen(false)}
+            >
+              Community
             </Link>
             <Link to="/login" 
               className="text-primary hover:bg-primary hover:text-white px-6 py-3 transition-colors"
